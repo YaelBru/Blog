@@ -1,0 +1,18 @@
+html,
+body {
+  font-family: "SF Pro Display",
+    "SF Pro Icons",
+    "Helvetica Neue",
+    "Helvetica",
+    "Arial",
+    sans-serif;
+
+  /* font-family: "Playfair Display",
+    "Montserrat",
+    "Helvetica",
+    "Arial",
+    sans-serif; */
+
+  display: block;
+  width: 100%;
+}

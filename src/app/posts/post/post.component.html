@@ -1,0 +1,5 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="post-wrapper" *ngIf="!isLoading">
+    <div class="post-content" [innerHTML]="post?.post | safeHtml">
+    </div>
+</div>

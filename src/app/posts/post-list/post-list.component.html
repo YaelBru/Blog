@@ -1,0 +1,22 @@
+<app-loader *ngIf="isLoading"></app-loader>
+<div class="posts-wrapper" *ngIf="!isLoading">
+  <div class="post-container" *ngFor="let post of posts | reverse; let i = index; let first = first;"
+    [ngClass]="{ first: first && innerWidth > 800 }">
+    <a [routerLink]="['/post', post.id]">
+      <div class="post-content">
+        <div class="post-media img-load">
+          <img [src]="post?.postMainImage" alt="">
+        </div>
+        <div (window:resize)="onResize($event)" [ngClass]="{ 'only-first' : first}">
+          <div class="post-content-text">
+            <h3 class="post-title">{{ post.postTitle}}</h3>
+            <time>{{ post.publishDate | date : 'mediumDate'}}</time>
+          </div>
+          <div class="post-preview">
+            {{post.postPreview}}
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
