@@ -2,7 +2,7 @@
   <ul class="contact-nav-list">
     <li class="contact-nav-list-item" title="Github">
       <a href="https://github.com/YaelBru">
-       <i class="fab fa-github"></i>
+        <i class="fab fa-github"></i>
       </a>
     </li>
     <li class="contact-nav-list-item" title="LinkedIn Profile">
@@ -22,11 +22,25 @@
     </li>
   </ul>
 </nav>
-<nav class="blog-nav">
-  <a class="blog-nav-brand" href=""> < /Blog.js ></a>
-  <ul class="blog-nav-list"> 
-    <li class="blog-nav-list-item">
-      <a class="blog-nav-list-link" routerLink="/about">About</a>
-    </li>
-  </ul>
+<nav class="navbar navbar-expand-md blog-nav">
+  <a class="blog-nav-brand" routerLink="/"> < /Blog.js ></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#sNav"
+    aria-controls="sNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div class="collapse navbar-collapse cd" id="sNav">
+    <ul class="navbar-nav ml-auto blog-nav-list">
+      <li class="mr-auto blog-nav-list-item">
+        <app-search class="blog-nav-list-link" ></app-search>
+        <!-- <a class="blog-nav-list-link" routerLink="/about">About</a> -->
+      </li>
+    </ul>
+  </div>
 </nav>

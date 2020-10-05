@@ -1,31 +1,52 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { Post } from './post';
-import { Observable } from 'rxjs';
-
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
+import { Post } from "./post";
+import { BehaviorSubject, Observable, Subject } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class PostsService {
 
-  constructor(private http: HttpClient) { }
+  posts$ = new BehaviorSubject([]);
+  initPosts = [];
 
-  getPostsList(): Observable<any> {
-    return this.http.get('https://yb-blog-4c214.firebaseio.com/posts.json').pipe(
-      map(resData => {
-        const postsList: Post[] = [];
-        for (const key in resData) {
-          if (resData.hasOwnProperty(key)) {
-            postsList.push({ ...resData[key], id: key });
+  constructor(private http: HttpClient) {
+    this.getPostsList();
+  }
+
+  search(value: string) {
+    if (!value) {
+      this.posts$.next(this.initPosts);
+    } else {
+      let filteredPosts = this.initPosts.filter((post) =>
+        post.postTitle.toLowerCase().includes(value.toLowerCase())
+      );
+      this.posts$.next(filteredPosts);
+    }
+  }
+
+  getPostsList() {
+    let posts = [];
+    return this.http
+      .get("https://yb-blog-4c214.firebaseio.com/posts.json")
+      .pipe(
+        map((resData) => {
+          for (const key in resData) {
+            if (resData.hasOwnProperty(key)) {
+              posts.push({ ...resData[key], id: key });
+            }
           }
-        };
-        return postsList;
-      }));
+          this.initPosts = posts;
+          this.posts$.next(posts);
+        })
+      ).subscribe();
   }
 
   getPost(postId): Observable<any> {
-    return this.http.get(`https://yb-blog-4c214.firebaseio.com/posts/${postId}.json`)
+    return this.http.get(
+      `https://yb-blog-4c214.firebaseio.com/posts/${postId}.json`
+    );
   }
 }

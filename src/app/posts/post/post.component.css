@@ -1,6 +1,19 @@
+@keyframes loadPost {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .post-wrapper {
   margin: 30px auto 70px;
   padding: 10px;
   font-size: 1.1em;
   line-height: 1.55em;
+  animation: loadPosts 1s forwards;
 }

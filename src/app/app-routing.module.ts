@@ -14,9 +14,7 @@ const routes: Routes = [
       { path: 'post/:id', component: PostComponent },
       { path: 'about', component: AboutComponent }
     ]
-  },
- 
-  //TODO: name of path 'my-blog'
+  }
 ];
 
 const routerOptions: ExtraOptions = {

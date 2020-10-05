@@ -1,14 +1,12 @@
 nav {
+  position: relative;
+  z-index: 1000;
   display: flex;
   margin: 0;
   padding: 0;
   pointer-events: auto;
-  font-family: "SF Pro Text",
-    "SF Pro Icons",
-    "Helvetica Neue",
-    "Helvetica",
-    "Arial",
-    sans-serif;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica",
+    "Arial", sans-serif;
 }
 
 .contact-nav {
@@ -19,7 +17,6 @@ nav {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
 }
-
 
 .contact-nav-list,
 .blog-nav-list {
@@ -34,7 +31,7 @@ nav {
   display: inline-block;
   padding: 0 15px;
   height: 44px;
-  opacity: .7;
+  opacity: 0.7;
   background: no-repeat;
   text-decoration: none;
   white-space: nowrap;
@@ -51,22 +48,22 @@ a {
   top: 0;
   left: 0;
   height: 52px;
-  display: flex;
+  padding: 0 16%;
   justify-content: space-around;
   width: 100%;
-  z-index: 9997;
+  z-index: 1000;
   backdrop-filter: saturate(180%) blur(35px);
   background-color: rgba(255, 255, 255, 0.7);
-
+  transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
 .blog-nav-brand {
   color: #1d1d1f;
-  transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1);
+  /* transition: color 0.5s cubic-bezier(0.28, 0.11, 0.32, 1); */
   font-size: 21px;
   line-height: 1.14286;
   font-weight: 600;
-  letter-spacing: .011em;
+  letter-spacing: 0.011em;
   margin: 14px 0 -14px;
   padding: 0;
   height: 52px;
@@ -77,8 +74,7 @@ a {
   font-size: 13px;
   line-height: 1;
   font-weight: 600;
-  padding-top: 18px;
-
+  padding-top: 12px;
 }
 
 .blog-nav-list-item {
@@ -94,7 +90,7 @@ a {
   height: 1px;
   z-index: 10;
   opacity: 1;
-  transition: color 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+  /* transition: color 0.3s cubic-bezier(0.28, 0.11, 0.32, 1); */
   color: #1d1d1f;
 }
 
@@ -120,3 +116,26 @@ a:hover {
 .blog-nav-list-link:hover {
   color: #06c;
 }
+
+.mq {
+  display: none;
+}
+
+@media all and (max-width: 767px) {
+  .blog-nav {
+    height: 52px;
+    padding: 0;
+  }
+  .cd {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .blog-nav-list {
+    padding-top: 0;
+  }
+
+  .blog-nav-list-item {
+    margin: auto;
+  }
+}
+

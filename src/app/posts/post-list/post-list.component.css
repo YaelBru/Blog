@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes loadBlog {
+@keyframes loadPosts {
   from {
     transform: translateY(30px);
     opacity: 0;
@@ -46,7 +46,7 @@ a {
   box-sizing: content-box;
   border-bottom: 1px solid #d2d2d7;
   background-color: #fff;
-  animation: loadBlog 1s forwards;
+  animation: loadPosts 1s forwards;
 }
 
 .post-content {

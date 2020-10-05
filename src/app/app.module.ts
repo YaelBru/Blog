@@ -9,6 +9,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +22,9 @@ import { AboutComponent } from './about/about.component';
 
 import { SafeHtmlPipe } from './shared/safe-html.pipe';
 import { ReversePipe } from './shared/reverse.pipe';
+
 import { LoaderComponent } from './shared/loader/loader.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
@@ -26,13 +32,13 @@ import { LoaderComponent } from './shared/loader/loader.component';
     AppComponent,
     NavComponent,
     HomeComponent,
-
     PostComponent,
     PostListComponent,
     AboutComponent,
     SafeHtmlPipe,
     ReversePipe,
-    LoaderComponent
+    LoaderComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,9 @@ import { LoaderComponent } from './shared/loader/loader.component';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
